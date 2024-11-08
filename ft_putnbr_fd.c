@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:52:27 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/10/28 18:03:07 by hmtioui          ###   ########.fr       */
+/*   Created: 2024/11/06 12:03:04 by hmtioui           #+#    #+#             */
+/*   Updated: 2024/11/06 13:18:54 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t i;
+	char num[11];
+	long nb;
+	int i;
 
+	nb = n;
 	i = 0;
-	if (!n)
-		return (0);
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-		i++;
-	return (s1[i] - s2[i]);
+	if (nb == 0)
+		write(fd, "0", 1);
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = -nb;
+	}
+	while (nb > 0)
+	{
+		num[i++] = nb % 10 + '0';
+		nb /= 10;
+	}
+	while (i > 0)
+		write(fd, &num[--i], 1);
 }

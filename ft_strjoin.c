@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/26 14:52:27 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/10/28 18:03:07 by hmtioui          ###   ########.fr       */
+/*   Created: 2024/10/31 18:41:50 by hmtioui           #+#    #+#             */
+/*   Updated: 2024/10/31 18:56:02 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t i;
+	char *ss;
+	int len;
 
-	i = 0;
-	if (!n)
-		return (0);
-	while (s1[i] && s2[i] && s1[i] == s2[i] && i < n - 1)
-		i++;
-	return (s1[i] - s2[i]);
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
+	if (!(ss = (char *)malloc(len)))
+		return (NULL);
+	ft_strlcpy(ss, s1, ft_strlen(s1) + 1);
+	ft_strlcat(ss, s2, len);
+	return (ss);
 }
