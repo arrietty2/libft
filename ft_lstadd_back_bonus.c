@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:45:53 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/07 16:04:37 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/10 15:22:12 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,16 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	while (temp)
 		temp = temp->next;
 	temp->next = new;
-	new->next = NULL;
+
+}
+int main()
+{
+	t_list *node1;
+	t_list *node2;
+	t_list *node3;
+
+	ft_lstnew(&node1);
+	ft_lstnew(&node2);
+	ft_lstnew(&node3);
+	ft_lstadd_back(node1, node2);
 }
