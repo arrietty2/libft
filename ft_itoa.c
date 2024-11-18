@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 20:44:28 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/12 21:17:51 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/14 14:36:09 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,19 @@ static int	nbrlen(long n)
 	return (i);
 }
 
+static void	declaration(long *nb, int *l, int n)
+{
+	*nb = n;
+	*l = nbrlen(*nb);
+}
+
 char	*ft_itoa(int n)
 {
-	int     l;
-	long    nb;
-	char    *p;
+	int		l;
+	long	nb;
+	char	*p;
 
-	nb = n;
-	l = nbrlen(nb);
+	declaration(&nb, &l, n);
 	p = (char *)malloc(l * sizeof(char));
 	if (!p)
 		return (NULL);

@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hmtioui <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 16:23:53 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/10/24 16:23:55 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/15 23:15:31 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char	*dstcpy;
+	const unsigned char	*srcpy;
 
+	if (!dst && !src)
+		return (NULL);
+	if (dst == src)
+		return (dst);
+	if (!n)
+		return (dst);
 	dstcpy = (unsigned char *)dst;
+	srcpy = (unsigned char *)src;
 	while (n--)
-		*dstcpy++ = (unsigned char)src++;
+		*dstcpy++ = *srcpy++;
 	return (dst);
 }
-/*#include <stdio.h>
-int	main(void){
-	char haru[] = "haha";
-	char dest[5];
-	dest[4] = 0;
-	memcpy(dest, haru, 4);
-	printf("%s\n",dest);
-}*/

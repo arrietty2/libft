@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:48:23 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/05 17:19:48 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/17 21:20:24 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	while (i < len)
-		snew[i] = f(i, s[i++]);
+	{
+		snew[i] = f(i, s[i]);
+		i++;
+	}
 	snew[i] = 0;
 	return (snew);
 }

@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:18:14 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/05 16:49:12 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/17 18:22:12 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	word_malloc(char **arr, int index, size_t len, int i)
 	return (0);
 }
 
-static int	fill_arr(char **arr, char *s, char c, int index)
+static int	fill_arr(char **arr, char const *s, char c, int index)
 {
 	size_t	len;
 
@@ -65,6 +65,7 @@ static int	fill_arr(char **arr, char *s, char c, int index)
 	}
 	return (0);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**arr;
@@ -73,7 +74,8 @@ char	**ft_split(char const *s, char c)
 	if (s == NULL)
 		return (NULL);
 	nwords = word_count(s, c, 0, 0);
-	if (!(arr = malloc((nwords + 1) * sizeof(char *))))
+	arr = malloc((nwords + 1) * sizeof(char *));
+	if (!arr)
 		return (NULL);
 	arr[nwords] = NULL;
 	if (fill_arr(arr, s, c, 0))

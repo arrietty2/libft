@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:23:24 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/10/26 14:48:31 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/17 03:53:52 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ char	*ft_strrchr(const char *s, int c)
 	while (s[i])
 	{
 		if (s[i] == c)
-			ptr = &s[i];
+			ptr = (char *)&s[i];
 		i++;
 	}
 	if (c == 0)
-		return (&s[i]);
+		return ((char *)&s[i]);
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 15:47:53 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/10/27 21:58:09 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/17 03:36:50 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ size_t    ft_strlcat(char *dst, const char *src, size_t size)
 
     a = 0;
     b = 0;
+    if(!dst && !size)
+        return (ft_strlen(src));
     while (dst[a] && a < size)
         a++;
     while (src[b] && (a + b + 1) < size)

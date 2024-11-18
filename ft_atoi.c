@@ -6,17 +6,25 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:59:30 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/10/31 14:31:43 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/17 15:15:25 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	check_overflow(int m)
+{
+	if (m == 1)
+		return (-1);
+	else
+		return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int i;
-	int n;
-	int m;
+	int		i;
+	long	n;
+	int		m;
 
 	i = 0;
 	n = 0;
@@ -31,9 +39,9 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		n *= 10;
-		n += str[i] - 0;
-		i++;
+		if (n > (LONG_MAX - (str[i] - '0')) / 10)
+			return (check_overflow(m));
+		n = (n * 10) + (str[i++] - 48);
 	}
 	return (n * m);
 }
