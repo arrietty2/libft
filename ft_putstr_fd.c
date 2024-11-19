@@ -6,13 +6,15 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:51:16 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/12 21:25:49 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/18 15:42:43 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void ft_putstr_fd(char *s, int fd){
-    if(!s || fd < 0)
-        return ;
-    write(fd, s, ft_strlen(s));
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (!s || fd < 0)
+		return ;
+	write(fd, s, ft_strlen(s));
 }

@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:21:07 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/17 15:01:47 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/19 17:08:15 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t i;
-	unsigned char *ps1;
-	unsigned char *ps2;
+	size_t			i;
+	unsigned char	*ps1;
+	unsigned char	*ps2;
 
 	ps1 = (unsigned char *)s1;
 	ps2 = (unsigned char *)s2;

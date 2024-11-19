@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 14:36:42 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/17 15:31:11 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/19 17:18:29 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_calloc(size_t count, size_t size)
 	p = (unsigned char *)malloc(count * size);
 	if (!p)
 		return (NULL);
-	bzero(p, count * size);
+	ft_bzero(p, count * size);
 	return (p);
 }

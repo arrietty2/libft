@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 12:03:04 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/06 13:18:54 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/18 15:42:08 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char num[11];
-	long nb;
-	int i;
+	char	num[11];
+	long	nb;
+	int		i;
 
+	if (fd < 0)
+		return ;
 	nb = n;
 	i = 0;
 	if (nb == 0)

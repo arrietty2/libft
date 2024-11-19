@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/26 14:23:24 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/17 03:53:52 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/19 17:09:37 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char *ptr;
-	int i;
+	char	*ptr;
+	int		i;
 
 	ptr = NULL;
 	i = 0;

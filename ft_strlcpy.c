@@ -6,7 +6,7 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 14:30:14 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/16 17:41:08 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/19 17:08:47 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	size_t srclen;
-	size_t i;
+	size_t	srclen;
+	size_t	i;
 
 	srclen = 0;
 	while (src[srclen])

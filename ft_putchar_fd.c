@@ -6,11 +6,15 @@
 /*   By: hmtioui <hmtioui@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 18:07:33 by hmtioui           #+#    #+#             */
-/*   Updated: 2024/11/05 18:50:25 by hmtioui          ###   ########.fr       */
+/*   Updated: 2024/11/18 15:40:05 by hmtioui          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-void ft_putchar_fd(char c, int fd){
-    write(fd, &c, 1);
+
+void	ft_putchar_fd(char c, int fd)
+{
+	if (fd < 0)
+		return ;
+	write(fd, &c, 1);
 }
