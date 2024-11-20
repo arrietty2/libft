@@ -10,10 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft.h" // Assuming you have the necessary ft_strlcpy function
 
-static int	word_count(const char *str, char c, int count, int flag)
+// Function to count the number of words in the string
+static int	word_count(const char *str, char c)
 {
+	int	count;
+	int	flag;
+
+	count = 0;
+	flag = 0;
 	while (*str)
 	{
 		if (*str != c && flag == 0)
@@ -28,11 +34,14 @@ static int	word_count(const char *str, char c, int count, int flag)
 	return (count);
 }
 
-static int	word_malloc(char **arr, int index, size_t len, int i)
+static int	word_malloc(char **arr, int index, size_t len)
 {
-	arr[index] = malloc((len));
+	int	i;
+
+	arr[index] = malloc(len);
 	if (arr[index] == NULL)
 	{
+		i = 0;
 		while (i < index)
 			free(arr[i++]);
 		free(arr);
@@ -41,7 +50,7 @@ static int	word_malloc(char **arr, int index, size_t len, int i)
 	return (0);
 }
 
-static int	fill_arr(char **arr, char const *s, char c, int index)
+static int	fill_arr(char **arr, const char *s, char c, int index)
 {
 	size_t	len;
 
@@ -50,30 +59,30 @@ static int	fill_arr(char **arr, char const *s, char c, int index)
 		len = 0;
 		while (*s && *s == c)
 			s++;
-		while (*s != c && *s)
+		while (*s && *s != c)
 		{
 			s++;
 			len++;
 		}
 		if (len)
 		{
-			if (word_malloc(arr, index, len + 1, 0))
+			if (word_malloc(arr, index, len + 1))
 				return (1);
+			ft_strlcpy(arr[index], s - len, len + 1);
+			index++;
 		}
-		ft_strlcpy(arr[index], s - len, len + 1);
-		index++;
 	}
 	return (0);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	char	**arr;
 	int		nwords;
+	char	**arr;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
-	nwords = word_count(s, c, 0, 0);
+	nwords = word_count(s, c);
 	arr = malloc((nwords + 1) * sizeof(char *));
 	if (!arr)
 		return (NULL);

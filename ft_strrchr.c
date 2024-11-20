@@ -17,15 +17,22 @@ char	*ft_strrchr(const char *s, int c)
 	char	*ptr;
 	int		i;
 
-	ptr = NULL;
-	i = 0;
-	while (s[i])
+	i = ft_strlen(s);
+	ptr = (char *)s;
+	while (i >= 0)
 	{
-		if (s[i] == c)
-			ptr = (char *)&s[i];
-		i++;
+		if (ptr[i] == (char)c)
+			return ((char *)&ptr[i]);
+		i--;
 	}
-	if (c == 0)
-		return ((char *)&s[i]);
-	return (ptr);
+	return (NULL);
 }
+
+// #include <stdio.h>
+// #include <string.h>
+// int main()
+// {
+// 	printf("%s\n",ft_strrchr("hauuha",'t'));
+// 	printf("%s\n",strrchr("hauuha",'t'));
+
+// }

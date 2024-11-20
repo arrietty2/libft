@@ -12,59 +12,31 @@
 
 #include "libft.h"
 
-static size_t	find_1st_index(char const *s1, char const *set, size_t i)
-{
-	size_t	k;
-
-	k = 0;
-	while (set[k])
-	{
-		if (s1[i] != set[k])
-			k++;
-		else if (s1[i] == set[k])
-		{
-			i++;
-			k = 0;
-		}
-	}
-	return (i);
-}
-
-static size_t	find_2nd_index(char const *s1, char const *set, size_t j)
-{
-	size_t	k;
-
-	k = 0;
-	while (set[k])
-	{
-		if (s1[j] != set[k])
-			k++;
-		else if (s1[j] == set[k])
-		{
-			j--;
-			k = 0;
-		}
-	}
-	return (j);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
+	size_t	start;
+	size_t	end;
+	size_t	size;
 	size_t	i;
-	size_t	j;
-	size_t	k;
 	char	*p;
 
-	if (!s1 || !set)
+	if (!s1)
 		return (NULL);
-	i = find_1st_index(s1, set, 0);
-	j = find_2nd_index(s1, set, ft_strlen(s1) - 1);
-	k = 0;
-	p = (char *)malloc(j - i + 2);
+	if (!set)
+		return (ft_strdup(s1));
+	start = 0;
+	end = ft_strlen(s1);
+	while (start < end && ft_strchr(set, s1[start]) != NULL)
+		start++;
+	while (start < end && ft_strchr(set, s1[end - 1]) != NULL)
+		end--;
+	size = end - start;
+	p = malloc(size + 1);
 	if (!p)
 		return (NULL);
-	while (s1[i] && i <= j)
-		p[k++] = s1[i++];
-	p[k] = 0;
+	i = 0;
+	while (i < size)
+		p[i++] = s1[start++];
+	p[i] = 0;
 	return (p);
 }
